@@ -1,0 +1,41 @@
+.Navbar {
+  height: 100px;
+  width: 100%;
+  background: #FFA364;
+  display: flex;
+  justify-content: flex-end;
+}
+.Navbar div {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.Navbar div div {
+  position: relative;
+  margin: 10px;
+  width: 120px;
+  height: 50%;
+}
+.Navbar div div h3 {
+  color: #273248;
+}
+.Navbar div div h3:hover {
+  color: #FFEBD2;
+  font-size: 22px;
+  transition: 0.2s;
+}
+.Navbar div div span {
+  cursor: pointer;
+  color: #273248;
+  font-size: 18px;
+  font-weight: bold;
+}
+.Navbar div div span:hover {
+  color: #FFEBD2;
+  font-size: 22px;
+  transition: 0.2s;
+}
+.Navbar div a {
+  text-decoration: none;
+}

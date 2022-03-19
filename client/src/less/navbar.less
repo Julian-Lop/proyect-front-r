@@ -1,0 +1,42 @@
+.Navbar{
+    height: @height-navbar;
+    width: @width-navbar;
+    background: @color-two;
+    display: flex;
+    justify-content: flex-end;
+    div{
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        div{
+            position: relative;
+            margin: 10px;
+            width: 120px;
+            height: 50%;
+            h3{
+                color: @color-five;
+                &:hover{
+                    color: @color-one;
+                    font-size: 22px;
+                    transition: @transition-color;
+                }
+            }
+            
+            span{
+                cursor: pointer;
+                color: @color-five;
+                font-size: 18px;
+                font-weight: bold;
+                &:hover{
+                    color: @color-one;
+                    font-size: 22px;
+                    transition: @transition-color;
+                }
+            }
+        }
+        a{
+            text-decoration: none;
+        }
+    }
+}

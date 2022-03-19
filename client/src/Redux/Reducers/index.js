@@ -23,7 +23,7 @@ function rootReducer(state = initialState, {type, payload}){
                 ...state,
                 userauth : payload
             }     
-        default:
+        
             
         case LOGOUT:
             return{
@@ -31,6 +31,8 @@ function rootReducer(state = initialState, {type, payload}){
                 token: null,
                 userauth: null
             }
+
+        default:    
         return state
     }
 }

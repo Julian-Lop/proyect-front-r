@@ -1,27 +1,19 @@
 import { useDispatch, useSelector } from "react-redux"
-import {decodeToken} from "react-jwt"
-import { logout, populateQuote } from "../Redux/Action"
+import { useNavigate } from "react-router-dom"
+import { logout } from "../Redux/Action"
 
 function Profile() {
     const dispatch = useDispatch()
-    
+    const navigate = useNavigate()
+
     const userValidate = useSelector((state) => state.userauth)
     
     const handleLogout = () => {
         dispatch(logout())
-        const token = localStorage.getItem('token')
-        if(token){
-            const user = decodeToken(token)
-            if(!user){
-                localStorage.removeItem('token')
-                window.location.href = '/home'
-            }else{
-                dispatch(populateQuote(localStorage.getItem('token')))
-            }
-        }else{
-            window.location.href = '/home'
-        }
+        navigate('/')
     }
+
+    
 
     return (
         <div>

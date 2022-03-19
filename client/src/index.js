@@ -11,7 +11,6 @@ ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <App />
-      <Dashboard/>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

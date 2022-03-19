@@ -2,14 +2,15 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import {decodeToken} from "react-jwt"
 import { populateQuote } from "../Redux/Action"
-import {Route, Routes} from 'react-router-dom'
-import {BrowserRouter as Router} from 'react-router-dom'
+import {Route, Routes, useNavigate} from 'react-router-dom'
 import Profile from "../components/Profile"
+import Navbar from "../components/Navbar"
 
 function Dashboard() {
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     
+
     useEffect(() => {
         const token = localStorage.getItem('token')
         if(window.location.pathname.includes('/dashboard')){
@@ -17,24 +18,25 @@ function Dashboard() {
                 const user = decodeToken(token)
                 if(!user){
                     localStorage.removeItem('token')
-                    window.location.href = '/home'   
+                    navigate('/')  
                 }else{
                     dispatch(populateQuote(localStorage.getItem('token')))
                 }
             }else{
-                window.location.href = '/home'
+                navigate('/')
             }
         }
     },[])
 
+    
+
     return (
         <div>
-        <Router>
+            <Navbar/>
             <Routes>
                 <Route path='/dashboard' element={<Profile/>} />
-                <Route path='/dashboard/profile' element={<Profile/>} />
+                <Route path='/dashboard/profile' element={<h1>Profile</h1>} />
             </Routes>
-        </Router>
         </div>
     )
 }
