@@ -1,30 +1,11 @@
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import {decodeToken} from "react-jwt"
 import { logout, populateQuote } from "../Redux/Action"
 
-
-function Dashboard() {
-    const navigate = useNavigate()
+function Profile() {
     const dispatch = useDispatch()
     
     const userValidate = useSelector((state) => state.userauth)
-
-    useEffect(() => {
-        const token = localStorage.getItem('token')
-        if(token){
-            const user = decodeToken(token)
-            if(!user){
-                localStorage.removeItem('token')
-                navigate('/')
-            }else{
-                dispatch(populateQuote(localStorage.getItem('token')))
-            }
-        }else{
-            navigate('/')
-        }
-    },[])
     
     const handleLogout = () => {
         dispatch(logout())
@@ -33,12 +14,12 @@ function Dashboard() {
             const user = decodeToken(token)
             if(!user){
                 localStorage.removeItem('token')
-                navigate('/')
+                window.location.href = '/home'
             }else{
                 dispatch(populateQuote(localStorage.getItem('token')))
             }
         }else{
-            navigate('/')
+            window.location.href = '/home'
         }
     }
 
@@ -57,4 +38,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard
+export default Profile

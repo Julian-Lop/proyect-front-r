@@ -5,11 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux'
 import store from './Redux/Store'
+import Dashboard from './Routers/Dashnoard';
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <App />
+      <Dashboard/>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

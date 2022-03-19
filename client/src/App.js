@@ -2,7 +2,7 @@ import './App.css';
 import {Route, Routes} from 'react-router-dom'
 import {BrowserRouter as Router} from 'react-router-dom'
 import Home from './components/Home';
-import Dashboard from './components/Dashnoard';
+
 
 
 function App() {
@@ -10,8 +10,7 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" exact element={<Home/>}/>
-          <Route path='/dashboard' exact element={<Dashboard/>} />
+          <Route path="/home" exact element={<Home/>}/>
         </Routes>
       </Router>
     </div>
