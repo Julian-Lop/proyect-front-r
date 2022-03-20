@@ -4,7 +4,7 @@ function SectionIntro() {
     return (
         <div className="SectionIntro">
             <br></br><br></br><br></br>
-            <h1>Helloooooo</h1>
+            <h1>Helloooooo I'm SectionIntro</h1>
         </div>
     )
 }

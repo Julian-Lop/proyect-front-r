@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {REGISTER,LOGIN, QUOTE, LOGOUT} from './types'
+import {REGISTER,LOGIN, QUOTE, LOGOUT, SETRECHARGE} from './types'
 
 
 export const register = (user) => {
@@ -30,5 +30,11 @@ export const logout = () => {
     return function(dispatch){
         localStorage.clear()
         return dispatch({type: LOGOUT})
+    }
+}
+
+export const setRecharge = () => {
+    return function(dispatch){
+        return dispatch({type: SETRECHARGE})
     }
 }

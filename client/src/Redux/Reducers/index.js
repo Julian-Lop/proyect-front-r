@@ -1,7 +1,8 @@
-import { LOGIN, LOGOUT, QUOTE, REGISTER } from "../Action/types"
+import { LOGIN, LOGOUT, QUOTE, REGISTER, SETRECHARGE } from "../Action/types"
 
 const initialState = {
-    user : []
+    user : [],
+    recharge : false
 }
 
 function rootReducer(state = initialState, {type, payload}){
@@ -15,7 +16,8 @@ function rootReducer(state = initialState, {type, payload}){
         case LOGIN:
             return {
                 ...state,
-                token: payload
+                token: payload,
+                recharge: false
             }
         
         case QUOTE:
@@ -29,9 +31,15 @@ function rootReducer(state = initialState, {type, payload}){
             return{
                 ...state,
                 token: null,
-                userauth: null
+                userauth: null,
+                recharge: true
             }
-
+        
+        case SETRECHARGE:
+            return {
+                ...state,
+                recharge: false
+            }
         default:    
         return state
     }

@@ -1,31 +1,45 @@
-import React from "react";
-import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link} from 'react-router-dom'
 import '../css/styles.css'
-import { logout } from "../Redux/Action";
+import { setRecharge } from "../Redux/Action";
+import DropdownMenu from "./DropdownMenu"
 
 function Navbar() {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
-    const handleLogout = () => {
-        dispatch(logout())
-        navigate('/')
+    const valid = useSelector((state) => state.recharge)
+
+    const handleDropmenu = () => {
+        if(document.querySelector('.DropdownMenuHide')){
+            const menu = document.querySelector('.DropdownMenuHide')
+            menu.classList.remove('DropdownMenuHide')
+            menu.classList.add('DropdownMenu')
+        }else{
+            const menu = document.querySelector('.DropdownMenu')
+            menu.classList.remove('DropdownMenu')
+            menu.classList.add('DropdownMenuHide')
+        }
     }
 
+    useEffect(() => {
+        if(valid){dispatch(setRecharge())}
+    },[valid])
+
     return(
-        <div className="Navbar">
-            <div>
+        <div>
+            <div className="Navbar">
                 <div>
-                    <Link to='/'><h3>HOME <i class="fas fa-home"></i></h3></Link>
+                    <div>
+                        <Link to='/'><h3>HOME <i class="fas fa-store"></i></h3></Link>
+                    </div>
+                    <div>
+                        {!localStorage.getItem('token') ? <Link to='/signin'><h3>SIGNIN <i class="fas fa-user"></i></h3></Link>: <span onClick={handleDropmenu}>PROFILE <i class="fas fa-user-circle"></i></span>}
+                    </div>
+                    {!localStorage.getItem('token') ?<div> <Link to='/signup'><h3>SIGNUP <i class="fas fa-user-plus"></i></h3></Link> </div>: null}
                 </div>
-                <div>
-                    {!localStorage.getItem('token') ? <Link to='/signin'><h3>SIGNIN <i class="fas fa-user"></i></h3></Link>: <span onClick={handleLogout}>LOGOUT <i class="fas fa-sign-out-alt"></i></span>}
-                </div>
-                
-                {!localStorage.getItem('token') ?<div> <Link to='/signup'><h3>SIGNUP <i class="fas fa-user-plus"></i></h3></Link> </div>: null}
-                
             </div>
+            <DropdownMenu/>
         </div>
     )
 }

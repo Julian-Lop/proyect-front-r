@@ -1,15 +1,15 @@
 import { useEffect } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch} from "react-redux"
 import {decodeToken} from "react-jwt"
 import { populateQuote } from "../Redux/Action"
 import {Route, Routes, useNavigate} from 'react-router-dom'
 import Profile from "../components/Profile"
 import Navbar from "../components/Navbar"
+import Cart from "../components/Cart"
 
 function Dashboard() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    
 
     useEffect(() => {
         const token = localStorage.getItem('token')
@@ -34,8 +34,8 @@ function Dashboard() {
         <div>
             <Navbar/>
             <Routes>
-                <Route path='/dashboard' element={<Profile/>} />
-                <Route path='/dashboard/profile' element={<h1>Profile</h1>} />
+                <Route path='/dashboard' element={<Cart/>} />
+                <Route path='/dashboard/profile' element={<Profile/>}/>
             </Routes>
         </div>
     )
