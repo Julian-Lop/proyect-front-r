@@ -37,22 +37,27 @@ function Signin(){
         if(user.Email && user.Password){
             dispatch(login(user))
         }else{
-            alert('There are empty fields')
+            const alert = document.querySelector('.AlertHide')
+            alert.classList.remove('AlertHide')
+            alert.classList.add('Alert')
         }
+    }
+
+    const handleExit = () => {
+        const alert = document.querySelector('.Alert')
+        alert.classList.remove('Alert')
+        alert.classList.add('AlertHide')
     }
 
     return (
         <div className="Signin">
-            <br></br><br></br>
             <h1>Signin</h1>
-            <br></br>
             <form onSubmit={e => handleSubmit(e)} >
                 <input type="email" name="Email" placeholder="Insert email" value={user.Email} onChange={e => handleChange(e)}></input>
-                <br></br>
                 <input type="password" name="Password" placeholder="Insert password" value={user.Password} onChange={e => handleChange(e)}></input>
-                <br></br><br></br>
                 <button type="submit">Send</button>
             </form>
+            <div className="AlertHide"><div><h1>There are empty fields</h1><button onClick={handleExit}><i class="fas fa-window-close"></i></button></div></div>
         </div>
     )
 }

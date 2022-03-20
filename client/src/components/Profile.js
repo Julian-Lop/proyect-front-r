@@ -1,19 +1,7 @@
-import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { logout } from "../Redux/Action"
+import { useSelector } from "react-redux"
 
 function Profile() {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
     const userValidate = useSelector((state) => state.userauth)
-    
-    const handleLogout = () => {
-        dispatch(logout())
-        navigate('/')
-    }
-
-    
 
     return (
         <div>
@@ -25,7 +13,6 @@ function Profile() {
                 <h2>Name: {userValidate.quote.Username}</h2>
                 <h2>Email: {userValidate.quote.Email}</h2>
             </div>:'bye'}
-            <button onClick={handleLogout}>Logout</button>
         </div>
     )
 }

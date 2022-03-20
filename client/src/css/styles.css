@@ -1,5 +1,5 @@
 .Navbar {
-  height: 100px;
+  height: 70px;
   width: 100%;
   background: #FFA364;
   display: flex;
@@ -38,4 +38,228 @@
 }
 .Navbar div a {
   text-decoration: none;
+}
+.Signup {
+  background: #273248;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  height: 450px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation-name: myanimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+}
+.Signup form {
+  display: flex;
+  flex-direction: column;
+}
+.Signup input {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background: none;
+  border: 2px solid #FFA364;
+  padding-left: 10px;
+  color: #FFA364;
+}
+.Signup input:focus {
+  border: 2px solid #FFEBD2;
+  background: #FFEBD2;
+  box-shadow: 2px 2px 10px 5px rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+.Signup button {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #FC7643;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background: none;
+  border: 2px solid #FC7643;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.Signup button:hover {
+  background: #FFA364;
+  border: 2px solid #FFA364;
+  color: #273248;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.Signup button:active {
+  background: none;
+}
+.Signup h1 {
+  color: #FFA364;
+}
+.Signin {
+  background: #273248;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+  height: 350px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation-name: myanimation;
+  animation-duration: 1.5s;
+  animation-timing-function: ease;
+}
+.Signin form {
+  display: flex;
+  flex-direction: column;
+}
+.Signin input {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background: none;
+  border: 2px solid #FFA364;
+  padding-left: 10px;
+  color: #FFA364;
+}
+.Signin input:focus {
+  border: 2px solid #FFEBD2;
+  background: #FFEBD2;
+  box-shadow: 2px 2px 10px 5px rgba(255, 255, 255, 0.3);
+  outline: none;
+}
+.Signin button {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #FC7643;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background: none;
+  border: 2px solid #FC7643;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.Signin button:hover {
+  background: #FFA364;
+  border: 2px solid #FFA364;
+  color: #273248;
+  font-weight: bold;
+  transition: 0.2s;
+}
+.Signin button:active {
+  background: none;
+}
+.Signin h1 {
+  color: #FFA364;
+}
+.Alert {
+  position: fixed;
+  top: 70px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: all 0.5s;
+}
+.Alert div {
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: 2px solid #FC7643;
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.6);
+  height: 200px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.Alert div h1 {
+  color: #FFEBD2;
+}
+.Alert div button {
+  margin: 0;
+  border: none;
+  font-size: 50px;
+}
+.Alert div button:hover {
+  color: #FFEBD2;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: 50px;
+}
+.AlertHide {
+  visibility: hidden;
+  position: fixed;
+  top: 70px;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0.2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.5s;
+}
+.AlertHide div {
+  margin-top: -40px;
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: 2px solid #FC7643;
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.6);
+  height: 200px;
+  width: 400px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.AlertHide div h1 {
+  color: #FFEBD2;
+}
+.AlertHide div button {
+  margin: 0;
+  border: none;
+  font-size: 50px;
+}
+.AlertHide div button:hover {
+  color: #FFEBD2;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: 50px;
+}
+@keyframes myanimation {
+  0% {
+    position: fixed;
+    right: -250vh;
+  }
+  100% {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

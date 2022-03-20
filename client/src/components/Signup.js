@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import {useDispatch} from 'react-redux'
 import { register } from "../Redux/Action"
 
+
 function Signup() {
     const dispatch = useDispatch()
 
@@ -11,6 +12,8 @@ function Signup() {
         Password: null,
     })
 
+    const [verificationP, setverificationP] = useState()
+
     const handleChange = (e) => {
         setuser({
             ...user,
@@ -18,8 +21,21 @@ function Signup() {
         })
     } 
 
+    const comparePasswords = () => {
+        if(verificationP === user.Password){
+            return true
+        }
+        return false
+    }
+
+    const handlePasswordVerification = (e) => {
+        setverificationP(e.target.value)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
+        const verifiedPassword = comparePasswords()
+        if(!verifiedPassword){return alert('please verify the passwords')}
         if(user.Username && user.Email && user.Password){
             dispatch(register(user))
             setuser({
@@ -27,25 +43,36 @@ function Signup() {
                 Email: '',
                 Password: ''
             })
+            setverificationP('')
         }else{
-            alert('There are empty fields')
+            const alert = document.querySelector('.AlertHide')
+            alert.classList.remove('AlertHide')
+            alert.classList.add('Alert')
         }
+    }
+
+    const handleExit = () => {
+        const alert = document.querySelector('.Alert')
+        alert.classList.remove('Alert')
+        alert.classList.add('AlertHide')
     }
 
     return (
         <div className="Signup">
-            <br></br><br></br>
             <h1>Signup</h1>
-            <br></br>
             <form onSubmit={e => handleSubmit(e)}>
                 <input type="text" name="Username" value={user.Username} placeholder="insert name" onChange={e => handleChange(e)} ></input>
-                <br></br>
+                
                 <input type="mail" name="Email" value={user.Email} placeholder="insert email" onChange={e => handleChange(e)}></input>
-                <br></br>
+                
                 <input type="password" name="Password" value={user.Password} placeholder="insert password" onChange={e => handleChange(e)}></input>
-                <br></br><br></br>
+                
+                <input type="password" name="passwordVerification" value={verificationP} placeholder="insert the password again" onChange={e => handlePasswordVerification(e)}></input>
+                
                 <button type="submit">Send</button>
             </form>
+
+            <div className="AlertHide"><div><h1>There are empty fields</h1><button onClick={handleExit}><i class="fas fa-window-close"></i></button></div></div>
         </div>
     )
 }
