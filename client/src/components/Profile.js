@@ -1,4 +1,6 @@
+import { useEffect } from "react"
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom"
 
 function Profile() {
     const userValidate = useSelector((state) => state.userauth)
@@ -24,6 +26,7 @@ function Profile() {
                             <h3>Neighbordhood {userValidate.quote.Location}</h3>
                         </div>
                     </div>
+                    <Link to="/dashboard/editprofile"> <button><i class="fas fa-user-cog"></i></button></Link>
                 </div>
                 :'bye'}
                 

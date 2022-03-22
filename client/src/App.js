@@ -7,8 +7,18 @@ import Signup from './components/Signup'
 import Navbar from './components/Navbar';
 import Dashboard from './Routers/Dashnoard';
 import { PrivateRoute } from './Routers/PrivateRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { logout } from './Redux/Action';
 
 function App() {
+  // const dispatch = useDispatch()
+  // const thereistoken = useSelector((state) => state.token)
+  // const tok = localStorage.getItem('token')
+  // useEffect(() => {
+  //   if(!thereistoken && tok){dispatch(logout())}
+  // },[thereistoken])
+
   return (
     <div className="App">
       <div>

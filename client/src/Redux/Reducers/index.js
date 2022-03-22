@@ -1,11 +1,12 @@
-import { LOGIN, LOGOUT, QUOTE, REGISTER, SETRECHARGE } from "../Action/types"
+import { EDITPROFILE, LOGIN, LOGOUT, QUOTE, REGISTER, SETRECHARGE } from "../Action/types"
 
 const initialState = {
     user : [],
-    recharge : false
+    recharge : false,
+    message: 'anything'
 }
 
-function rootReducer(state = initialState, {type, payload}){
+function rootReducer(state = initialState, {type, payload, message}){
     switch(type){
         case REGISTER:
             return{
@@ -17,7 +18,8 @@ function rootReducer(state = initialState, {type, payload}){
             return {
                 ...state,
                 token: payload,
-                recharge: false
+                recharge: false,
+                message: message
             }
         
         case QUOTE:
@@ -40,6 +42,15 @@ function rootReducer(state = initialState, {type, payload}){
                 ...state,
                 recharge: false
             }
+
+        case EDITPROFILE:
+            const newauth = state.userauth
+            newauth.quote = payload
+            return {
+                ...state,
+                userauth : newauth,
+                message : message
+            }    
         default:    
         return state
     }

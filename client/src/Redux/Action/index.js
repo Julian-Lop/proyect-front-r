@@ -1,12 +1,11 @@
 import axios from 'axios'
-import {REGISTER,LOGIN, QUOTE, LOGOUT, SETRECHARGE} from './types'
+import {REGISTER,LOGIN, QUOTE, LOGOUT, SETRECHARGE, EDITPROFILE} from './types'
 
 
 export const register = (user) => {
     return async function(dispatch){
         let json = await axios.post('http://localhost:3001/register', user)
-        alert(json.data.message)
-        return dispatch({type: 'REGISTER', payload: json.data})
+        return dispatch({type: 'REGISTER', payload: json.data, message:json.data.message})
     }
 }
 
@@ -14,8 +13,7 @@ export const login = (user) => {
     return async function(dispatch){
         let json = await axios.post('http://localhost:3001/login', user)
         if(json.data.token)localStorage.setItem('token',json.data.token)
-        alert(json.data.message)
-        return dispatch({type: LOGIN, payload: json.data})
+        return dispatch({type: LOGIN, payload: json.data, message:json.data.message})
     }
 }
 
@@ -36,5 +34,12 @@ export const logout = () => {
 export const setRecharge = () => {
     return function(dispatch){
         return dispatch({type: SETRECHARGE})
+    }
+}
+
+export const editProfile = (user) => {
+    return async function(dispatch){
+        let json = await axios.put('http://localhost:3001/setuser', user)
+        return dispatch({type:EDITPROFILE, payload:json.data.useredit, message:json.data.message})
     }
 }

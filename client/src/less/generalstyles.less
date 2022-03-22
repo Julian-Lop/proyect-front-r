@@ -1,0 +1,170 @@
+.AlertSuccess{
+    position: fixed;
+    top: 150px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding-bottom: 20px;
+    width: 350px;
+    background: @color-one;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: @color-two;
+    box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.3);
+    opacity: 1;
+    transition: all 0.5s;
+    button{
+        background: none;
+        width: 100px;
+        border: none;
+        font-size: 50px;
+        color: @color-three;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            color: @color-four;
+        }
+    }
+}
+
+.AlertSuccessHide{
+    visibility: hidden;
+    position: fixed;
+    top: 150px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding-bottom: 20px;
+    height: 170px;
+    width: 350px;
+    background: @color-one;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: @color-two;
+    opacity: 0;
+    transition: all 0.5s;
+    button{
+        background: none;
+        width: 100px;
+        border: none;
+        font-size: 50px;
+        color: @color-three;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            color: @color-four;
+        }
+    }
+}
+
+.Alert{
+    position: fixed;
+    top: 70px;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: all 0.5s;
+    div{
+        margin-top: -40px;
+        display: flex;
+        flex-direction: column;
+        background: @color-one;
+        box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.6);
+        height: 200px;
+        width: 400px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        h1{
+            color: @color-two;
+        }
+        
+        button{
+            margin: 0;
+            border: none;
+            font-size: 50px;
+            color: @color-three ;
+            cursor: pointer;
+            transition: 0.5s;
+            &:hover{
+                color: @color-four;
+                margin: 0;
+                background: none;
+                border: none;
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+.AlertHide{
+    visibility: hidden;
+    position: fixed;
+    top: 70px;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(0.2px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s;
+    div{
+        margin-top: -40px;
+        display: flex;
+        flex-direction: column;
+        background: @color-one; 
+        box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.6);
+        height: 200px;
+        width: 400px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        h1{
+            color: @color-one;
+        }
+        
+        button{
+            margin: 0;
+            border: none;
+            font-size: 50px;
+            &:hover{
+                color: @color-two;
+                margin: 0;
+                background: none;
+                border: none;
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+
+//Animations
+
+@keyframes editanimation {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+@keyframes myanimation {
+    0% {position: fixed;
+        right: -250vh;}   
+    100% {position: fixed;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;}
+}

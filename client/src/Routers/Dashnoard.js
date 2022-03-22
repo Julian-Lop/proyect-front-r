@@ -6,6 +6,7 @@ import {Route, Routes, useNavigate} from 'react-router-dom'
 import Profile from "../components/Profile"
 import Navbar from "../components/Navbar"
 import Cart from "../components/Cart"
+import EditProfile from "../components/EditProfile"
 
 function Dashboard() {
     const navigate = useNavigate()
@@ -36,6 +37,7 @@ function Dashboard() {
             <Routes>
                 <Route path='/dashboard' element={<Cart/>} />
                 <Route path='/dashboard/profile' element={<Profile/>}/>
+                <Route path='/dashboard/editprofile' element={<EditProfile/>}/>
             </Routes>
         </div>
     )

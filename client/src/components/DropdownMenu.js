@@ -25,7 +25,7 @@ function DropdownMenu() {
     return (
     <div className='DropdownMenuHide'>
         <ul>
-        <Link to="/dashboard"> <li onClick={handleChangeDropmenu}>Cart <i class="fas fa-shopping-cart"></i></li></Link>
+            <Link to="/dashboard"> <li onClick={handleChangeDropmenu}>Cart <i class="fas fa-shopping-cart"></i></li></Link>
             <Link to="/dashboard/profile"> <li onClick={handleChangeDropmenu}>Profile <i class="fas fa-user"></i></li></Link>
             <li onClick={handleLogout}>Logout <i class="fas fa-sign-out-alt"></i></li>
         </ul>
