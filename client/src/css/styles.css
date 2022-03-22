@@ -167,7 +167,7 @@
   }
 }
 .Navbar {
-  position: absolute;
+  position: fixed;
   z-index: 2;
   height: 70px;
   width: 100%;
@@ -483,21 +483,56 @@
   }
 }
 .Cart {
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
-  background: #f3f3f3;
   align-items: center;
-  padding: 50px;
+  padding: 120px;
 }
 .Cart div {
-  margin-top: 100px;
-  background: #ffffff;
+  background: #273248;
+  width: 100%;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .Cart div h1 {
   margin-bottom: 100px;
+}
+.Cart .NavigationBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.Cart .NavigationBar button {
+  border: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #FFA364;
+  cursor: pointer;
+  background: linear-gradient(to right, #FFA364 50%, #273248 50%);
+  background-size: 201% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+.Cart .NavigationBar button:hover {
+  background-position: left bottom;
+  color: #273248;
+}
+.Cart hr {
+  width: 99.7%;
+  border: 1px solid #273248;
+  box-shadow: 0px 2px 3px 0.5px rgba(0, 0, 0, 0.3);
+}
+.Cart .SectionInfo {
+  background: #273248;
+  height: 250px;
+}
+.Cart h2 {
+  color: #FFA364;
+  font-weight: bold;
 }
 .EditProfile {
   padding: 150px;
@@ -570,4 +605,118 @@
 }
 .EditProfile button:active {
   background: none;
+}
+.CurrentPurchase {
+  animation-name: tableanimation;
+  animation-duration: 0.5s;
+}
+.CurrentPurchase table {
+  width: 100%;
+  height: max-content;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  color: #FFEBD2;
+  box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.5);
+}
+.CurrentPurchase thead {
+  margin: 0;
+  padding: 0;
+  background: #FFA364;
+  border-bottom: 1px solid #FFA364;
+}
+.CurrentPurchase th,
+.CurrentPurchase td {
+  padding: 10px;
+  font-size: 18px;
+  text-align: left;
+  border-bottom: 1px solid #FFA364;
+}
+.CurrentPurchase tr:hover {
+  background: #FC7643;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.CurrentPurchase tr:hover td {
+  border-bottom: 1px solid #FC7643;
+}
+.CurrentPurchase tr:hover th {
+  border-bottom: 1px solid #FC7643;
+}
+.CurrentPurchase .SubtotalColumn {
+  width: 120px;
+}
+.CurrentPurchase .TotalAmount {
+  background: #FFEBD2;
+  margin-bottom: 25px;
+  width: 250px;
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-start;
+}
+.CurrentPurchase .TotalAmount h3 {
+  color: #FC7643;
+  margin-top: 5px;
+  margin-bottom: 0;
+  margin-left: 10px;
+}
+.CurrentPurchase .TotalAmount h2 {
+  color: #FC7643;
+  align-self: center;
+  margin-top: 0;
+}
+.CurrentPurchase .TotalAmount hr {
+  width: 99%;
+  border: 1px solid #FFA364;
+  box-shadow: 0px 2px 5px 0.5px rgba(0, 0, 0, 0.3);
+}
+.CurrentPurchase .DisplayRow {
+  display: flex;
+  flex-direction: row;
+}
+.CurrentPurchase .Pay {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  font-size: 20px;
+  margin-right: 15px;
+  margin-top: 80px;
+  margin-bottom: -40px;
+  font-weight: 700;
+  background: none;
+  color: #FC7643;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.CurrentPurchase .Pay:hover {
+  color: #AF4F41;
+}
+.CurrentPurchase .Cancel {
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  font-size: 35px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 100px;
+  background: none;
+  color: #FC7643;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.CurrentPurchase .Cancel:hover {
+  color: #AF4F41;
+}
+@keyframes tableanimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

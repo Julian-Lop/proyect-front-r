@@ -1,17 +1,57 @@
 .Cart{
+    left: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
-    background: #f3f3f3;
     align-items: center;
-    padding: 50px;
+    padding: 120px;
     div{
-        margin-top: 100px;
-        background: #ffffff;
+        background: @color-five;
+        width: 100%;
+        margin-top: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
         h1{
             margin-bottom: 100px;
         }
+    }
+
+    .NavigationBar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        button{
+            border: none;
+            font-size: 20px;
+            font-weight: 700;
+            color: @color-two;
+            cursor: pointer;
+
+            background: linear-gradient(to right, @color-two 50%,@color-five 50%);
+            background-size: 201% 100%;
+            background-position: right bottom;
+            transition: all .5s ease-out;
+            &:hover{
+                background-position: left bottom;
+                color: @color-five;
+            }
+        }
+    }
+    
+    hr{
+        width: 99.7%;
+        border: 1px solid @color-five;
+        box-shadow: 0px 2px 3px 0.5px rgba(0,0,0,0.3);
+    }
+
+    .SectionInfo{
+        background: @color-five;
+        height: 250px;
+    }
+
+    h2{
+        color: @color-two;
+        font-weight: bold;
     }
 }

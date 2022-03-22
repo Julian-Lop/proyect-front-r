@@ -12,31 +12,37 @@ import { useEffect } from 'react';
 import { logout } from './Redux/Action';
 
 function App() {
-  // const dispatch = useDispatch()
-  // const thereistoken = useSelector((state) => state.token)
-  // const tok = localStorage.getItem('token')
-  // useEffect(() => {
-  //   if(!thereistoken && tok){dispatch(logout())}
-  // },[thereistoken])
+  const dispatch = useDispatch()
+  const thereistoken = useSelector((state) => state.token)
+  const tok = localStorage.getItem('token')
+  useEffect(() => {
+    if(!thereistoken && tok){dispatch(logout())}
+  },[thereistoken])
 
   return (
     <div className="App">
       <div>
         <Router>
+
           <Routes>
+
             <Route path='/*' element={<Dashboard/>}/>
+
             <Route exact path="/" element={<Home/>}/>
+
             <Route exact path="/signin" element={
             <PrivateRoute>
               <Navbar/>
               <Signin/>
             </PrivateRoute>}/>
+            
             <Route exact path="/signup" element={
             <PrivateRoute>
               <Navbar/>
               <Signup/>
             </PrivateRoute>}/>
           </Routes>
+
         </Router>
       </div>
     </div>

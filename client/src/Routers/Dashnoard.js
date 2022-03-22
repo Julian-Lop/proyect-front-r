@@ -35,7 +35,9 @@ function Dashboard() {
         <div>
             <Navbar/>
             <Routes>
-                <Route path='/dashboard' element={<Cart/>} />
+                <Route path='/dashboard' element={<Cart/>}/>
+                <Route path='/dashboard/reservations' element={<Cart/>} />
+                <Route path='/dashboard/purchasemades' element={<Cart/>} />
                 <Route path='/dashboard/profile' element={<Profile/>}/>
                 <Route path='/dashboard/editprofile' element={<EditProfile/>}/>
             </Routes>
